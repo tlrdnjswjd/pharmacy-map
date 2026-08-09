@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>인근 약국 안내</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#f4f7f5;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;color:#1f2937}
+.wrap{max-width:760px;margin:auto;background:white;min-height:100vh;padding-bottom:28px}
+.hero{padding:28px 20px 22px;text-align:center;background:linear-gradient(135deg,#e9f8ee,#fff)}
+.badge{display:inline-block;background:#159447;color:white;border-radius:999px;padding:7px 15px;font-weight:700;font-size:14px}
+h1{margin:12px 0 8px;font-size:30px;letter-spacing:-1px} .sub{margin:0;color:#4b5563;font-size:15px}
+.map{width:calc(100% - 28px);margin:14px;border-radius:18px;box-shadow:0 3px 15px #00000012}
+.section{padding:8px 18px} .title{font-size:19px;font-weight:800;margin:12px 2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfe8e2;border-radius:14px;padding:14px 12px;min-height:68px;box-shadow:0 2px 7px #00000008}
+.num{width:32px;height:32px;border-radius:50%;background:#159447;color:white;display:grid;place-items:center;font-weight:800;flex:none}
+.text{min-width:0;flex:1} .text b{display:block;font-size:15px;line-height:1.25} .text small{display:block;color:#6b7280;margin-top:3px;font-size:12px} .arrow{font-size:24px;color:#159447}
+.notice{margin:18px;padding:15px;border-radius:14px;background:#eef8f1;color:#245c38;font-size:13px;line-height:1.6}
+@media(max-width:520px){.grid{grid-template-columns:1fr} h1{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <span class="badge">우리 동네 건강 지킴이</span>
+    <h1>인근 약국 안내</h1>
+    <p class="sub">약국 이름을 누르면 네이버 지도로 연결됩니다.</p>
+  </header>
+  <img class="map" src="a_clean_infographic_poster_style_image_in_korean.png" alt="인근 약국 안내 지도">
+  <section class="section">
+    <div class="title">약국을 선택하세요</div>
+    <div class="grid">
+      
+      <a class="card" href="https://map.naver.com/p/search/%EC%B2%9C%EC%82%AC%EC%95%BD%EA%B5%AD" target="_blank" rel="noopener">
+        <span class="num">①</span>
+        <span class="text"><b>천사약국</b><small>7호선</small></span>
+        <span class="arrow">›</span>
+      </a>
+    
+      <a class="card" href="https://map.naver.com/p/search/%EC%88%98%EC%95%BD%EA%B5%AD" target="_blank" rel="noopener">
+        <span class="num">②</span>
+        <span class="text"><b>수약국</b><small>7호선</small></span>
+        <span class="arrow">›</span>
+      </a>
+    
+      <a class="card" href="https://map.naver.com/p/search/%EC%86%94%EC%95%BD%EA%B5%AD" target="_blank" rel="noopener">
+        <span class="num">③</span>
+        <span class="text"><b>솔약국</b><small>7호선</small></span>
+        <span class="arrow">›</span>
+      </a>
+    
+      <a class="card" href="https://map.naver.com/p/search/%EC%A1%B0%EB%8B%AC%EC%95%BD%EA%B5%AD" target="_blank" rel="noopener">
+        <span class="num">④</span>
+        <span class="text"><b>조달약국</b></span>
+        <span class="arrow">›</span>
+      </a>
+    
+      <a class="card" href="https://map.naver.com/p/search/%EC%A1%B0%EB%8B%AC%EC%B2%AD%EC%82%AC%EC%95%BD%EA%B5%AD" target="_blank" rel="noopener">
+        <span class="num">⑤</span>
+        <span class="text"><b>조달청사약국</b></span>
+        <span class="arrow">›</span>
+      </a>
+    
+      <a class="card" href="https://map.naver.com/p/search/%EC%84%9C%EC%B4%88%EC%97%AD%EC%95%BD%EA%B5%AD" target="_blank" rel="noopener">
+        <span class="num">⑥</span>
+        <span class="text"><b>서초역약국</b></span>
+        <span class="arrow">›</span>
+      </a>
+    
+      <a class="card" href="https://map.naver.com/p/search/%EC%84%9C%EC%B4%88%EB%8B%B9%EC%95%BD%EA%B5%AD" target="_blank" rel="noopener">
+        <span class="num">⑦</span>
+        <span class="text"><b>서초당약국</b><small>3호선</small></span>
+        <span class="arrow">›</span>
+      </a>
+    
+      <a class="card" href="https://map.naver.com/p/search/%EA%B1%B4%EA%B0%95%EA%B3%BC%ED%96%89%EB%B3%B5%EC%9D%B4%EC%97%B4%EB%A6%AC%EB%8A%94%EC%95%BD%EA%B5%AD" target="_blank" rel="noopener">
+        <span class="num">⑧</span>
+        <span class="text"><b>건강과행복이열리는약국</b><small>2호선</small></span>
+        <span class="arrow">›</span>
+      </a>
+    
+    </div>
+  </section>
+  <div class="notice">※ 네이버 지도에서 약국 검색 결과를 연 뒤, 현재 위치를 기준으로 길찾기를 이용할 수 있습니다.</div>
+</div>
+</body>
+</html>

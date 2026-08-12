@@ -3,56 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>약국 위치 안내</title>
+<title>약국 안내</title>
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Malgun Gothic",sans-serif}
-.header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid #e5e7eb;padding:13px 15px}
-.title{font-weight:800;font-size:18px;color:#111827}
-.desc{font-size:12px;color:#6b7280;margin-top:4px}
-.map{position:relative;width:min(100%,900px);margin:auto;background:#fff;overflow:hidden;line-height:0}
-.map img{display:block;width:100%;height:auto}
-.pin{position:absolute;z-index:2;text-decoration:none;display:flex;flex-direction:column;align-items:center;line-height:normal;touch-action:manipulation}
-.bubble{position:relative;background:#fff;border:1px solid #dfe3e8;border-radius:12px;padding:7px 10px;white-space:nowrap;font-size:12px;font-weight:800;color:#111827;box-shadow:0 3px 12px rgba(0,0,0,.2)}
-.bubble:after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;background:#fff;border-right:1px solid #dfe3e8;border-bottom:1px solid #dfe3e8;transform:translateX(-50%) rotate(45deg)}
-.dot{width:14px;height:14px;border-radius:50%;background:#16a34a;border:3px solid white;box-shadow:0 1px 6px rgba(0,0,0,.3);margin-top:6px}
-.pin:active .bubble{transform:scale(.96)}
-.footer{width:min(100%,900px);margin:auto;background:#fff;padding:12px 15px 20px;color:#6b7280;font-size:11px}
+html,body {
+  margin:0;
+  padding:0;
+  background:#fff;
+}
+.page {
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  position:relative;
+  line-height:0;
+}
+.page img {
+  display:block;
+  width:100%;
+  height:auto;
+}
+.hotspot {
+  position:absolute;
+  display:block;
+  z-index:5;
+  cursor:pointer;
+  background:transparent;
+  -webkit-tap-highlight-color:transparent;
+}
+.hotspot:focus-visible {
+  outline:3px solid #1a73e8;
+  outline-offset:2px;
+  border-radius:12px;
+}
 </style>
 </head>
 <body>
-<header class="header">
-<div class="title">약국 위치 안내</div>
-<div class="desc">약국 이름을 누르면 해당 약국의 네이버 지도로 이동합니다.</div>
-</header>
-<main class="map">
-<img src="pharmacy-map.png" alt="약국 위치 지도">
-<a class="pin" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziQmP,2AJpVa,%EC%B2%9C%EC%82%AC%EC%95%BD%EA%B5%AD,13176563,PLACE_POI/-/walk?c=16.00,0,0,0,dh" target="_blank" rel="noopener noreferrer"
-      style="left:28.9%;top:4.0%;transform:translate(-50%,-100%)" aria-label="천사약국 네이버 지도 열기">
-      <span class="bubble">천사약국</span><span class="dot"></span>
-    </a><a class="pin" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziJqK,2AJnXE,%EC%86%94%EC%95%BD%EA%B5%AD,13175626,PLACE_POI/-/walk?c=17.00,0,0,0,dh" target="_blank" rel="noopener noreferrer"
-      style="left:12.9%;top:9.0%;transform:translate(-20%,-100%)" aria-label="솔약국 네이버 지도 열기">
-      <span class="bubble">솔약국</span><span class="dot"></span>
-    </a><a class="pin" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziKYb,2AJnDg,%EC%9C%84%EB%93%9C%ED%8C%9C%EC%88%98%EC%95%BD%EA%B5%AD,19530983,PLACE_POI/-/walk?c=17.00,0,0,0,dh" target="_blank" rel="noopener noreferrer"
-      style="left:16.3%;top:9.0%;transform:translate(-80%,-100%)" aria-label="위드팜수약국 네이버 지도 열기">
-      <span class="bubble">위드팜수약국</span><span class="dot"></span>
-    </a><a class="pin" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziJ5k,2AJi11,%EC%A1%B0%EB%8B%AC%EC%95%BD%EA%B5%AD,19534606,PLACE_POI/-/walk?c=17.00,0,0,0,dh" target="_blank" rel="noopener noreferrer"
-      style="left:12.0%;top:25.7%;transform:translate(-50%,-100%)" aria-label="조달약국 네이버 지도 열기">
-      <span class="bubble">조달약국</span><span class="dot"></span>
-    </a><a class="pin" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziJ38,2AJesG,%EC%A1%B0%EB%8B%AC%EC%B2%AD%EC%82%AC%EC%95%BD%EA%B5%AD,1977870137,PLACE_POI/-/walk?c=16.00,0,0,0,dh" target="_blank" rel="noopener noreferrer"
-      style="left:12.0%;top:35.0%;transform:translate(-50%,-100%)" aria-label="조달청사약국 네이버 지도 열기">
-      <span class="bubble">조달청사약국</span><span class="dot"></span>
-    </a><a class="pin" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziUDU,2AIW9Z,%EC%9C%84%EB%93%9C%ED%8C%9C%EC%84%9C%EC%B4%88%EC%97%AD%EC%95%BD%EA%B5%AD,21701160,PLACE_POI/-/walk?c=14.00,0,0,0,dh" target="_blank" rel="noopener noreferrer"
-      style="left:38.8%;top:86.0%;transform:translate(-50%,-100%)" aria-label="위드팜서초역약국 네이버 지도 열기">
-      <span class="bubble">위드팜서초역약국</span><span class="dot"></span>
-    </a><a class="pin" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%원,11637436,PLACE_POI/3zjej2,2AJ1tk,%EA%B1%B4%EA%B0%95%EA%B3%BC%ED%96%89%EB%B3%B5%EC%9D%B4%EC%97%B4%EB%A6%AC%EB%8A%94%EC%95%BD%EA%B5%AD,19525631,PLACE_POI/-/walk?c=14.00,0,0,0,dh" target="_blank" rel="noopener noreferrer"
-      style="left:84.0%;top:71.0%;transform:translate(-50%,-100%)" aria-label="건강과행복이열리는약국 네이버 지도 열기">
-      <span class="bubble">건강과행복이열리는약국</span><span class="dot"></span>
-    </a><a class="pin" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%원,11637436,PLACE_POI/3zjasY,2AITcr,%EC%84%9C%EC%B4%88%EB%8B%B9%EC%95%BD%EA%B5%AD,19525419,PLACE_POI/-/walk?c=14.00,0,0,0,dh" target="_blank" rel="noopener noreferrer"
-      style="left:75.2%;top:94.0%;transform:translate(-50%,-100%)" aria-label="서초당약국 네이버 지도 열기">
-      <span class="bubble">서초당약국</span><span class="dot"></span>
-    </a>
-</main>
-<footer class="footer">각 약국 말풍선은 사용자가 지정한 네이버 지도 링크와 1:1로 연결되어 있습니다.</footer>
+<div class="page">
+  <img src="pharmacy-map.png" alt="약국 위치 및 약국 선택 안내">
+  <a class="hotspot" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziQmP,2AJpVa,%EC%B2%9C%EC%82%AC%EC%95%BD%EA%B5%AD,13176563,PLACE_POI/-/walk?c=16.00,0,0,0,dh" target="_blank" rel="noopener noreferrer" aria-label="1번 천사약국 네이버 지도 열기" style="left:1.5556%;top:67.1250%;width:47.8889%;height:5.8750%;"></a><a class="hotspot" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziKYb,2AJnDg,%EC%9C%84%EB%93%9C%ED%8C%9C%EC%88%98%EC%95%BD%EA%B5%AD,19530983,PLACE_POI/-/walk?c=17.00,0,0,0,dh" target="_blank" rel="noopener noreferrer" aria-label="2번 수약국 네이버 지도 열기" style="left:50.4444%;top:67.1250%;width:48.1111%;height:5.8750%;"></a><a class="hotspot" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziJqK,2AJnXE,%EC%86%94%EC%95%BD%EA%B5%AD,13175626,PLACE_POI/-/walk?c=17.00,0,0,0,dh" target="_blank" rel="noopener noreferrer" aria-label="3번 솔약국 네이버 지도 열기" style="left:1.5556%;top:73.5000%;width:47.8889%;height:5.7500%;"></a><a class="hotspot" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziJ5k,2AJi11,%EC%A1%B0%EB%8B%AC%EC%95%BD%EA%B5%AD,19534606,PLACE_POI/-/walk?c=17.00,0,0,0,dh" target="_blank" rel="noopener noreferrer" aria-label="4번 조달약국 네이버 지도 열기" style="left:50.4444%;top:73.5000%;width:48.1111%;height:5.7500%;"></a><a class="hotspot" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziJ38,2AJesG,%EC%A1%B0%EB%8B%AC%EC%B2%AD%EC%82%AC%EC%95%BD%EA%B5%AD,1977870137,PLACE_POI/-/walk?c=16.00,0,0,0,dh" target="_blank" rel="noopener noreferrer" aria-label="5번 조달청사약국 네이버 지도 열기" style="left:1.5556%;top:79.8125%;width:47.8889%;height:5.6875%;"></a><a class="hotspot" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3ziUDU,2AIW9Z,%EC%9C%84%EB%93%9C%ED%8C%9C%EC%84%9C%EC%B4%88%EC%97%AD%EC%95%BD%EA%B5%AD,21701160,PLACE_POI/-/walk?c=14.00,0,0,0,dh" target="_blank" rel="noopener noreferrer" aria-label="6번 서초역약국 네이버 지도 열기" style="left:50.4444%;top:79.8125%;width:48.1111%;height:5.6875%;"></a><a class="hotspot" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3zjasY,2AITcr,%EC%84%9C%EC%B4%88%EB%8B%B9%EC%95%BD%EA%B5%AD,19525419,PLACE_POI/-/walk?c=14.00,0,0,0,dh" target="_blank" rel="noopener noreferrer" aria-label="7번 서초당약국 네이버 지도 열기" style="left:1.5556%;top:86.0625%;width:47.8889%;height:5.5000%;"></a><a class="hotspot" href="https://map.naver.com/p/directions/3ziMC6,2AJkub,%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%9C%EC%9A%B8%EC%84%B1%EB%AA%A8%EB%B3%91%EC%9B%90,11637436,PLACE_POI/3zjej2,2AJ1tk,%EA%B1%B4%EA%B0%95%EA%B3%BC%ED%96%89%EB%B3%B5%EC%9D%B4%EC%97%B4%EB%A6%AC%EB%8A%94%EC%95%BD%EA%B5%AD,19525631,PLACE_POI/-/walk?c=14.00,0,0,0,dh" target="_blank" rel="noopener noreferrer" aria-label="8번 건강과행복이열리는약국 네이버 지도 열기" style="left:50.4444%;top:86.0625%;width:48.1111%;height:5.5000%;"></a>
+</div>
 </body>
 </html>
